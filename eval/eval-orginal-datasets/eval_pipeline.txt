@@ -1,7 +1,6 @@
 Đánh giá pipeline chấm điểm toàn phiếu: kịch bản dùng thêm Yolo26s detect và thuật toán ....
 
-- yolo26s no gan:
-(bản train 2) 
+- yolo26s no gan: 
 Fold	Q_Acc	S_Acc
 1	97.470726	85.03401361
 2	98.36734694	87.07482993

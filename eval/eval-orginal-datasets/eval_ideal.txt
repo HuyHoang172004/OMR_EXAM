@@ -3,7 +3,7 @@
 
 - yolo26s no gan:
 
-Fold	Q_Acc	S_Acc (bản train 2) 
+Fold	Q_Acc	S_Acc  
 1	97.5175644	86.39455782
 2	98.32199546	87.07482993
 3	98.6437613	89.79591837
