@@ -58,7 +58,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 
 ### 5. Download Dataset (Optional)
 
-Download the required data archives and pre-trained models from our Google Drive.
+Download the required data archives and pre-trained models from our Google Drive : https://drive.google.com/drive/folders/1vKB6uCjVFhwlp6gA2Lk7NUI2OWmxBOc7?usp=sharing
 
 Extract the downloaded .zip files directly into your project root directory. Ensure your structure contains:
 

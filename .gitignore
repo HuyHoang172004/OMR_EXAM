@@ -105,8 +105,8 @@ Thumbs.db
 # ZIP archives
 *.zip
 
-# TFLite models (large files)
-*.tflite
+# # TFLite models (large files)
+# *.tflite
 
 # Video/media files
 *.mp4

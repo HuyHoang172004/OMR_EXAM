@@ -14,25 +14,22 @@ This is the research repository for **"OMR-Exam: An Efficient Lightweight Framew
 
 ## 🎯 Key Contributions
 
-### 1. Container Suppression Algorithm
-- Removes false parent/outer boxes that contain answer bubbles
-- Significantly improves detection precision by filtering overlapping detections
-- Enables flexible template-free bubble localization
 
-### 2. Adaptive Grid Sorting (Interpolation Grid)
-- Dynamic Y-axis grouping based on median bubble height
-- Robust to skewed sheets and variable question layouts
-- Automatically interprets exam template structure in real-time
+### 1. Elimination of Manual Template Configuration (Template-Free Localization)
+- **YOLO26 Integration:** Completely eliminates the need for per-bubble manual coordinate setup by deploying the YOLO26s detection network.
+- **Algorithmic Refinements:** Integrates a specialized **Container Suppression** algorithm to filter noisy/overlapping bounding boxes, and an **Adaptive Grid Sorting** algorithm to automatically interpret the structural layout of any exam template in real-time.
+- **Micro-Target Optimization:** Leverages YOLO26s's Small-Target-Aware Label Assignment (STAL) to accurately detect tiny answer bubbles against background document features, achieving 99.81% precision[cite: 1].
 
-### 3. DCGAN-Enhanced Data Augmentation
-- Generates 1,000 synthetic crossed-out bubble samples
-- Addresses class imbalance to improve classifier robustness
-- Simulates diverse human erasure patterns as strong regularization
+### 2. Addressing Data Imbalance via DCGAN & The "GAN Paradox"
+- **Minority Class Synthesis:** Applies DCGAN to generate 1,000 synthetic samples specifically for the severely imbalanced `crossed-out` class.
+- **Decision Boundary Expansion:** Simulates diverse human erasure patterns that act as a strong regularization mechanism, effectively expanding the model's decision boundaries to overcome class bias.
+- **The GAN Paradox Discovery:** Provides empirical analysis showing that while generative augmentation maximizes in-domain accuracy, it can cause models to overfit localized physical traits (e.g., specific ink spectra or template geometry), highlighting the trade-off in cross-institutional generalization[cite: 1].
 
-### 4. EfficientNet-B0 Bubble Classification
-- Lightweight architecture optimized for mobile deployment
-- 3-class classification: confirmed/crossed-out/empty
-- Square padding augmentation for robust ROI processing
+### 3. High-Accuracy Lightweight Classification (EfficientNet-B0)
+- **Core Classifier:** Proposes and demonstrates the effectiveness of the lightweight EfficientNet-B0 architecture for the OMR bubble classification task.
+- **Micro-Aware Preprocessing:** Implements **White-Square Padding** and **128x128 Resolution Optimization** to preserve the aspect ratio and micro-geometric textures of pencil marks without computational bloat[cite: 1].
+- **Performance Boost:** Achieves a mean Sheet Accuracy of **88.98% ± 3.92%**, demonstrating statistically consistent improvements over standard non-GAN configurations.
+- **Mobile Viability:** Maintains highly efficient inference speeds suitable for edge devices, successfully achieving an end-to-end processing time of ~2.97 seconds per sheet on mobile Android hardware[cite: 1].
 
 ## 📊 Performance Results
 
@@ -111,9 +108,6 @@ See [SETUP.md](SETUP.md) for detailed environment configuration.
 omr_exam/
 ├── README.md                          # This file
 ├── SETUP.md                           # Environment setup guide
-├── DEVELOPMENT.md                     # System architecture & development
-├── CHANGELOG.md                       # Version history
-├── LICENSE                            # MIT License
 ├── requirements.txt                   # Python dependencies
 ├── .gitignore                         # Git exclusions
 │
@@ -143,7 +137,7 @@ omr_exam/
 ├── eval/                              # Evaluation & validation
 │   ├── eval-orginal-datasets/         # Evaluation on original datasets
 │   ├── eval-on-new-dataset/           # Evaluation on new data
-│   └── draf/                          # Draft evaluation notebooks
+│ 
 │
 ├── weights/                           # Pre-trained models
 │   ├── efficientnetb0/                # Classification weights (.pth, .tflite)
@@ -158,7 +152,7 @@ omr_exam/
 ## 🧪 Experimental Results
 
 ### Dataset
-- **735 original exam sheets** (exam6 dataset - scanned documents and mobile camera captures)
+- **735 original exam sheets** 
 - **5-fold cross-validation** protocol for robust evaluation
 - **1,000 DCGAN-generated samples** for crossed-out class augmentation
 
@@ -378,12 +372,11 @@ All experimental datasets, pre-trained weights, and metadata are publicly availa
 ## ⚠️ Limitations & Future Work
 
 ### Current Limitations
-- **Sheet rotation:** Robust to ±30°, limited beyond.
-- **Overlapping bubbles:** May be detected as a single bubble.
-- **Very poor image quality:** Preprocessing quality is critical.
-- **Cross-Institutional Generalization (The "GAN Paradox"):** Generative augmentation may overfit localized physical traits of the training dataset, requiring fine-tuning for entirely unseen exam templates.
+- **Warping Artifacts & Alignment Shifts:** During the ORB geometric flattening step, minor pixel shifts can occur, leading to slightly off-center extracted bounding boxes.
+- **Irregular Marking Behaviors:** Ambiguous student inputs—such as extremely faint erasures or overlapping ink strokes that fall outside the learned feature distribution—can occasionally mislead the classification model.
+- **Cross-Institutional Generalization (The "GAN Paradox"):** While DCGAN augmentation maximizes in-domain accuracy, it inadvertently causes the core classifier to overfit localized physical traits (e.g., specific pencil textures and paper backgrounds). Consequently, the GAN-enhanced model struggles with out-of-domain extrapolation on novel exam templates, making the baseline architecture a safer choice for cross-institutional deployments.
 
-### Future Enhancements (v4.0+)
+### Future Enhancements 
 - Handwritten digit recognition support (HTR).
 - Web-based grading management interface.
 - Real-time camera feed processing.
@@ -394,7 +387,7 @@ All experimental datasets, pre-trained weights, and metadata are publicly availa
 ## 📞 Contact & Support
 
 **Authors**:
-- Le Duc Thuan (corresponding author: thuanld@actvn.edu.vn)
+- Le Duc Thuan
 - Nguyen Thi Hong Ngan
 - Nguyen Huy Hoang
 
@@ -408,11 +401,9 @@ Please cite the original paper if you use this work.
 ## 🙏 Acknowledgments
 
 - Academy of Cryptography Techniques for research support.
-- Ultralytics for YOLOv8 framework.
+- Ultralytics for YOLO26 framework.
 - PyTorch & OpenCV communities.
 
 ---
 
-**Last Updated**: 2026-07-06  
-**Code Version**: 3.0
 
