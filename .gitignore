@@ -1,0 +1,146 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.c
+*.o
+*.a
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+myenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Large data folders (NOT tracked)
+datasets/
+document/
+draf/
+
+# Temporary/cache files
+*.csv
+*.log
+*.tmp
+*.cache
+*.pkl
+*.pickle
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Model checkpoints and intermediate weights (keep only final versions in weights/)
+**/*.pt
+**/*.pth
+**/*.onnx
+!weights/**/*.pt
+!weights/**/*.pth
+
+# ZIP archives
+*.zip
+
+# TFLite models (large files)
+*.tflite
+
+# Video/media files
+*.mp4
+*.avi
+*.mov
+*.flv
+
+# Jupyter Notebook output files
+.ipynb_checkpoints/
+*checkpoint.ipynb
+
+# Android build artifacts
+android-app/build/
+android-app/.gradle/
+android-app/local.properties
+*.apk
+*.aab
+*.keystore
+
+# Python distribution
+dist/
+build/
+
+# Miscellaneous
+.pytest_cache
+.mypy_cache
+.dmypy.json
+dmypy.json
+
+# Sphinx documentation
+docs/_build/
+
+# Generated evaluation reports (unless you want to track them)
+# Uncomment if needed:
+# omr_recognition_evaluation.csv
+# omr_recognition_summary.csv
+# ket_qua_cham_thi_hoan_thien.csv

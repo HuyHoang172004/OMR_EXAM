@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#F7F9FC">
+
+    <TextView
+        android:id="@+id/txtPageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Page Config"
+        android:textColor="#0D47A1"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editPageNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Page number (e.g. 1)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editAnswerKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:hint="Answer Key (e.g. ABCD...)"
+        android:inputType="textCapCharacters" />
+
+    <EditText
+        android:id="@+id/editStructure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:hint="Questions Structure (e.g. 4,4,4)"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnPickTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pick Template" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgTemplate"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="#E3F2FD"
+            android:contentDescription="Template preview"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTemplateName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Template: (none)"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnRemoveTemplate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Remove" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

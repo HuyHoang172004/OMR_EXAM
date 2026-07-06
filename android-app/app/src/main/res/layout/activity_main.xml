@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtAppTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OMR Exam"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Chon che do cham bai"
+        android:textSize="14sp"
+        android:textColor="#546E7A" />
+
+    <Button
+        android:id="@+id/btnGoSingle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Cham 1 trang" />
+
+    <Button
+        android:id="@+id/btnGoMulti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Cham nhieu trang" />
+</LinearLayout>
